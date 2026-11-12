@@ -23,9 +23,9 @@ export class FiveMinutesApi implements INodeType {
         defaults: { name: '5MinutesAPI' },
         inputs: [NodeConnectionTypes.Main],
         outputs: [NodeConnectionTypes.Main],
-        // eslint-disable-next-line @n8n/community-nodes/no-credential-reuse
         credentials: [
             {
+                // eslint-disable-next-line @n8n/community-nodes/no-credential-reuse
                 name: 'fiveMinutesApiApi',
                 required: true,
             },
@@ -41,7 +41,7 @@ export class FiveMinutesApi implements INodeType {
                         name: 'Send WhatsApp Template',
                         value: 'sendTemplate',
                         description: 'Send an official Meta WhatsApp Template',
-                        action: 'Send a WhatsApp template',
+                        action: 'Send a message', 
                     },
                 ],
                 default: 'sendTemplate',
