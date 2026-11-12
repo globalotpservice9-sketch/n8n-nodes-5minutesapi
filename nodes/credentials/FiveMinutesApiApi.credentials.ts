@@ -3,12 +3,13 @@ import {
     INodeProperties,
     IAuthenticateGeneric,
     Icon,
+    ICredentialTestRequest,
 } from 'n8n-workflow';
 
 export class FiveMinutesApiApi implements ICredentialType {
     name = 'fiveMinutesApiApi';
     displayName = '5MinutesAPI API';
-    documentationUrl = 'https://5minutesapi.com/';
+    documentationUrl = 'https://5minutesapi.com/dashboard';
     icon = 'file:logo.svg' as Icon;
 
     properties: INodeProperties[] = [
@@ -29,6 +30,13 @@ export class FiveMinutesApiApi implements ICredentialType {
             headers: {
                 Authorization: '=Bearer {{$credentials.apiKey}}',
             },
+        },
+    };
+
+    test: ICredentialTestRequest = {
+        request: {
+            baseURL: 'https://api.5minutesapi.com',
+            url: '/v1/me',
         },
     };
 }

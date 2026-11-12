@@ -5,7 +5,7 @@ class FiveMinutesApiApi {
     constructor() {
         this.name = 'fiveMinutesApiApi';
         this.displayName = '5MinutesAPI API';
-        this.documentationUrl = 'https://5minutesapi.com/';
+        this.documentationUrl = 'https://5minutesapi.com/dashboard';
         this.icon = 'file:logo.svg';
         this.properties = [
             {
@@ -24,6 +24,12 @@ class FiveMinutesApiApi {
                 headers: {
                     Authorization: '=Bearer {{$credentials.apiKey}}',
                 },
+            },
+        };
+        this.test = {
+            request: {
+                baseURL: 'https://api.5minutesapi.com',
+                url: '/v1/me',
             },
         };
     }
