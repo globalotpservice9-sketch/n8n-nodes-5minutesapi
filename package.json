@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-5minutesapi",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Official 5MinutesAPI Node for n8n. Send WhatsApp OTPs, Utility Alerts, and 2-Way Interactive Messages globally using the Official Meta Cloud API.",
   "homepage": "https://5minutesapi.com",
   "main": "dist/nodes/FiveMinutesApi/FiveMinutesApi.node.js",
