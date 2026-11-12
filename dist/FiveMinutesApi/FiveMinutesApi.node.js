@@ -1,19 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FiveMinutesApi = void 0;
+const n8n_workflow_1 = require("n8n-workflow");
 class FiveMinutesApi {
     constructor() {
         this.description = {
             displayName: '5MinutesAPI',
             name: 'fiveMinutesApi',
-            icon: 'file:logo.svg', // Folder mein 'logo.svg' zaroor rakhein
+            icon: 'file:logo.svg',
             group: ['transform'],
             version: 1,
+            usableAsTool: true,
             subtitle: '={{$parameter["operation"]}}',
             description: 'Send Enterprise WhatsApp Messages via 5MinutesAPI',
             defaults: { name: '5MinutesAPI' },
-            inputs: ['main'],
-            outputs: ['main'],
+            inputs: [n8n_workflow_1.NodeConnectionTypes.Main],
+            outputs: [n8n_workflow_1.NodeConnectionTypes.Main],
             credentials: [
                 {
                     name: 'fiveMinutesApiApi',
@@ -109,11 +111,11 @@ class FiveMinutesApi {
                 const options = {
                     method: 'POST',
                     body: body,
-                    uri: 'https://api.5minutesapi.com/v1/send-message',
+                    url: 'https://api.5minutesapi.com/v1/send-message',
                     json: true,
                 };
                 try {
-                    const responseData = await this.helpers.requestWithAuthentication.call(this, 'fiveMinutesApiApi', options);
+                    const responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'fiveMinutesApiApi', options);
                     returnData.push(responseData);
                 }
                 catch (error) {
@@ -121,7 +123,7 @@ class FiveMinutesApi {
                         returnData.push({ error: error.message });
                     }
                     else {
-                        throw error;
+                        throw new n8n_workflow_1.NodeApiError(this.getNode(), error);
                     }
                 }
             }

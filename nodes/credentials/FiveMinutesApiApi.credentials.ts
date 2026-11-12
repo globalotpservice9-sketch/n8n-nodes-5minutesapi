@@ -1,14 +1,15 @@
 import {
-    IAuthenticateGeneric,
     ICredentialType,
     INodeProperties,
+    IAuthenticateGeneric,
+    Icon,
 } from 'n8n-workflow';
 
 export class FiveMinutesApiApi implements ICredentialType {
     name = 'fiveMinutesApiApi';
-    displayName = '5MinutesAPI Authentication';
-    // Gora yahan click kar ke seedha aapki site par API key lene aayega
-    documentationUrl = 'https://5minutesapi.com/dashboard'; 
+    displayName = '5MinutesAPI API';
+    documentationUrl = 'https://5minutesapi.com/';
+    icon = 'file:logo.svg' as Icon;
 
     properties: INodeProperties[] = [
         {

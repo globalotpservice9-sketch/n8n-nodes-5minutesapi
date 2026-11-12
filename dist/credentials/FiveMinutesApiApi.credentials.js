@@ -4,9 +4,9 @@ exports.FiveMinutesApiApi = void 0;
 class FiveMinutesApiApi {
     constructor() {
         this.name = 'fiveMinutesApiApi';
-        this.displayName = '5MinutesAPI Authentication';
-        // Gora yahan click kar ke seedha aapki site par API key lene aayega
-        this.documentationUrl = 'https://5minutesapi.com/dashboard';
+        this.displayName = '5MinutesAPI API';
+        this.documentationUrl = 'https://5minutesapi.com/';
+        this.icon = 'file:logo.svg';
         this.properties = [
             {
                 displayName: 'Master API Key',

@@ -2,7 +2,7 @@
 
 ![5MinutesAPI](https://5minutesapi.com/logo.png)
 
-The official [5MinutesAPI](https://5minutesapi.com) integration for n8n. Automate your WhatsApp Business messaging, send OTPs, and build 2-Way interactive flows directly through the Official Meta Cloud API—with **Zero Markup**.
+The official [5MinutesAPI](https://5minutesapi.com) integration for n8n. Automate your WhatsApp Business messaging, send OTPs, and build 2-Way interactive flows directly through the Official Meta Cloud API—with **Zero Markup**. 
 
 ## 🚀 Why Use 5MinutesAPI?
 - **Zero Markup Pricing:** You only pay Meta's official rates. We don't charge per message.

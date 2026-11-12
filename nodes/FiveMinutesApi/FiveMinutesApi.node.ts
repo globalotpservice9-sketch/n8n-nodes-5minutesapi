@@ -4,19 +4,25 @@ import {
     INodeExecutionData,
     INodeType,
     INodeTypeDescription,
+    NodeConnectionTypes,
+    NodeApiError,
+    JsonObject,
+    Icon,
 } from 'n8n-workflow';
+
 export class FiveMinutesApi implements INodeType {
     description: INodeTypeDescription = {
         displayName: '5MinutesAPI',
         name: 'fiveMinutesApi',
-        icon: 'file:logo.svg', // Folder mein 'logo.svg' zaroor rakhein
+        icon: 'file:logo.svg' as Icon,
         group: ['transform'],
         version: 1,
+        usableAsTool: true,
         subtitle: '={{$parameter["operation"]}}',
         description: 'Send Enterprise WhatsApp Messages via 5MinutesAPI',
         defaults: { name: '5MinutesAPI' },
-        inputs: ['main'],
-        outputs: ['main'],
+        inputs: [NodeConnectionTypes.Main],
+        outputs: [NodeConnectionTypes.Main],
         credentials: [
             {
                 name: 'fiveMinutesApiApi',
@@ -103,7 +109,7 @@ export class FiveMinutesApi implements INodeType {
                     variablesArray = variablesStr.split(',').map(v => v.trim());
                 }
 
-                const body: any = {
+                const body: IDataObject = {
                     to: toPhone,
                     whatsapp_template: templateName,
                 };
@@ -115,18 +121,18 @@ export class FiveMinutesApi implements INodeType {
                 const options = {
                     method: 'POST',
                     body: body,
-                    uri: 'https://api.5minutesapi.com/v1/send-message',
+                    url: 'https://api.5minutesapi.com/v1/send-message',
                     json: true,
                 };
 
                 try {
-                    const responseData = await this.helpers.requestWithAuthentication.call(this, 'fiveMinutesApiApi', options);
-                    returnData.push(responseData);
+                    const responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'fiveMinutesApiApi', options);
+                    returnData.push(responseData as IDataObject);
                 } catch (error) {
                     if (this.continueOnFail()) {
-                        returnData.push({ error: error.message });
+                        returnData.push({ error: (error as Error).message });
                     } else {
-                        throw error;
+                        throw new NodeApiError(this.getNode(), error as JsonObject);
                     }
                 }
             }

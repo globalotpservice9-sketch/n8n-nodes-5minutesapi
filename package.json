@@ -1,16 +1,16 @@
 {
   "name": "n8n-nodes-5minutesapi",
-  "version": "1.0.1",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/globalotpservice9-sketch/n8n-nodes-5minutesapi.git"
-  },
+  "version": "1.0.3",
   "description": "Official 5MinutesAPI Node for n8n. Send WhatsApp OTPs, Utility Alerts, and 2-Way Interactive Messages globally using the Official Meta Cloud API.",
+  "homepage": "https://5minutesapi.com",
   "main": "dist/nodes/FiveMinutesApi/FiveMinutesApi.node.js",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "n8n-community-node-package",
     "whatsapp",
@@ -36,12 +36,18 @@
       "dist/nodes/FiveMinutesApi/FiveMinutesApi.node.js"
     ]
   },
-  "dependencies": {
-    "n8n-core": "^1.0.0",
-    "n8n-workflow": "^1.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/globalotpservice9-sketch/n8n-nodes-5minutesapi.git"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*",
+    "n8n-core": "*"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "n8n-core": "*",
+    "n8n-workflow": "*",
     "tslint": "^6.1.3",
     "typescript": "^5.0.0"
   }
