@@ -33,7 +33,7 @@ class FiveMinutesApi {
                             name: 'Send WhatsApp Template',
                             value: 'sendTemplate',
                             description: 'Send an official Meta WhatsApp Template',
-                            action: 'Send a WhatsApp template',
+                            action: 'Send a WhatsApp template', // Wahan 'whatsapp' ki jagah 'WhatsApp' kar dein
                         },
                     ],
                     default: 'sendTemplate',
