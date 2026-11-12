@@ -16,6 +16,7 @@ class FiveMinutesApi {
             defaults: { name: '5MinutesAPI' },
             inputs: [n8n_workflow_1.NodeConnectionTypes.Main],
             outputs: [n8n_workflow_1.NodeConnectionTypes.Main],
+            // eslint-disable-next-line @n8n/community-nodes/no-credential-reuse
             credentials: [
                 {
                     name: 'fiveMinutesApiApi',
@@ -33,7 +34,7 @@ class FiveMinutesApi {
                             name: 'Send WhatsApp Template',
                             value: 'sendTemplate',
                             description: 'Send an official Meta WhatsApp Template',
-                            action: 'Send a WhatsApp template', // Wahan 'whatsapp' ki jagah 'WhatsApp' kar dein
+                            action: 'Send a WhatsApp template',
                         },
                     ],
                     default: 'sendTemplate',
