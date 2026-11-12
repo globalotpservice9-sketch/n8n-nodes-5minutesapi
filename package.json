@@ -6,7 +6,7 @@
   "main": "dist/nodes/FiveMinutesApi/FiveMinutesApi.node.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w" 
   },
   "files": [
     "dist"
